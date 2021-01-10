@@ -1,5 +1,4 @@
 <?php
-    include 'includes/connect.php';
     include 'includes/_header.php';
 ?>
 
@@ -7,7 +6,6 @@
 include 'includes/_nav.php';
 ?>
 <div id="option">
-    
 </div>
 <div id="report">
     
