@@ -1,19 +1,15 @@
 <?php
 $q = $_GET['q'];
-
 include '../includes/connect.php';
 
 mysqli_select_db($conn,"EIS");
-$sql="SELECT * FROM Employee AS e
-INNER JOIN Department_Master AS d
-ON e.Emp_Dept_Id=d.Dept_Id
-WHERE d.Dept_Name='".$q."'";
+$sql="SELECT * FROM Employee AS e INNER JOIN Company_Location AS cl ON e.Emp_Location_Id = cl.Location_Id INNER JOIN Country_Master AS cm ON cl.Country_Id=cm.Country_Id WHERE cm.Country_Name = '".$q."'";
 $result = mysqli_query($conn,$sql);
 
 
 echo "<table>
 <tr>
-<th>Id</th>
+<th>Employee ID</th>
 <th>Name</th>
 
 </tr>";

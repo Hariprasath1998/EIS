@@ -11,6 +11,6 @@
 	if(!$conn) {
 		echo "Connection Error\n". mysql_connect_error();
 	}else{
-		echo "Database Connected\n";
+		// echo "Database Connected\n";
 	}
  ?>

@@ -1,29 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-table, td, th {
-  border: 1px solid black;
-  padding: 5px;
-}
-
-th {text-align: left;}
-</style>
-</head>
-<body>
-
 <?php
 $q = $_GET['q'];
-echo $q;
 
 include '../includes/connect.php';
 
-mysqli_select_db($conn,"ajax_demo");
+mysqli_select_db($conn,"EIS");
 $sql="SELECT * FROM Employee WHERE Emp_Designation_Id IN ( SELECT Designation_Id FROM Designation_Master WHERE Designation_Desc = '".$q."' )";
 $result = mysqli_query($conn,$sql);
 

@@ -135,13 +135,12 @@ function report5() {
     <form>
     <select name="Region" onchange="SQL5(this.value)">
         <option value="">Region:</option>
-        <option value="Technical Manager">Technical Manager</option>
-        <option value="Data Analyst">Data Analyst</option>
-        <option value="President of Sales">President of Sales</option>
-        <option value="IT Manager">IT Manager</option>
-        <option value="Software Development Manager">Software Development Manager</option>
-        <option value="Web Designer">Web Designer</option>
-        <option value="Project Manager">Project Manager</option>
+        <option value="India">India</option>
+        <option value="Australia">Australia</option>
+        <option value="New Zealand">New Zealand</option>
+        <option value="New York">New York</option>
+        <option value="Berlin">Berlin</option>
+        <option value="London">London</option>
     </select>
     `
     report.innerHTML = "";
@@ -154,13 +153,58 @@ function SQL5(str) {
     } else {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 5 && this.status == 200) {
+            if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("report").innerHTML = this.responseText;
             }
         };
         xmlhttp.open("GET", "reports/report5.php?q=" + str, true);
         xmlhttp.send();
     }
+}
+
+
+// Sixth Report
+function report6() {
+    option.innerHTML = `
+    <h2>Employees with more than or equal to 2 children.</h2>
+
+    
+    `
+    report.innerHTML = "";
+    SQL6()
+}
+
+function SQL6() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("report").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "reports/report6.php?q=", true);
+    xmlhttp.send();
+}
+
+// Seventh Report
+function report7() {
+    option.innerHTML = `
+    <h2>Employees with education as post graduation degree.</h2>
+
+    
+    `
+    report.innerHTML = "";
+    SQL7();
+}
+
+function SQL7() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("report").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "reports/report7.php?q=", true);
+    xmlhttp.send();
 }
 
 
