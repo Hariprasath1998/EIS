@@ -1,6 +1,12 @@
 const option = document.getElementById('option');
 const report = document.getElementById('report');
-
+const nav = document.getElementById('navMain');
+nav.addEventListener('click', function(e) {
+    console.log(e.target.tagName);
+    if (e.target.tagName == 'A') {
+        nav.classList.remove('home');
+    }
+})
 
 // First Report
 function report1() {
